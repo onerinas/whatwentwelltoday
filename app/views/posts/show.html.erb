@@ -6,8 +6,19 @@
 
     <%= render @post %>
 
+    <%= render "comments/form", comment: @comment %>
+
+    <%= link_to "View Homepage", posts_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+
     <div class="my-10">
-      <%= link_to "View Homepage", posts_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <h2 class="text-2xl font-medium mb-5">Replies</h2>
+      <div class="space-y-4">
+        <% @comments.each do |comment| %>
+          <div class="bg-gray-100 rounded-lg hover:shadow transition duration-300 ease-in-out">
+            <%= render partial: "comments/comment", locals: { comment: comment } %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

@@ -1,6 +1,6 @@
 <div id="<%= dom_id post %>">
     <div class="p-4">
-      <span class="font-light"><%= time_tag post.created_at, "data-local": "time-ago" %></span>:
-      <%= post.content %>
+      <div class="text-lg"><%= post.content %></div>
+      <div class="font-light text-sm"><%= time_tag post.created_at, "data-local": "time-ago" %></div>
     </div>
 </div>
