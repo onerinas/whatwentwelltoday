@@ -1,0 +1,13 @@
+# == Schema Information
+#
+# Table name: feedbacks
+#
+#  id         :bigint           not null, primary key
+#  email      :string
+#  message    :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+class Feedback < ApplicationRecord
+  validates :message, presence: true
+end

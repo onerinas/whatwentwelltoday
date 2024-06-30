@@ -1,0 +1,20 @@
+<div class="mx-auto md:w-2/3 w-full flex">
+  <div class="mx-auto">
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
+
+    <h1 class="text-2xl font-medium mb-5">Feedback</h1>
+    <p class="text-gray-500 mb-5">Thank you for your feedback! We will get back to you shortly if you have provided your email.</p>
+    <p class="text-gray-500 mb-5">In the meantime, you can view the homepage or submit another feedback.</p>
+    <p class="text-gray-500 mb-5">
+      You can also contribute to this
+      <%= link_to "project on GitHub", "https://github.com/onerinas/whatwentwelltoday", class: "underline", target: :_blank %>
+       or
+      <%= link_to "create an issue in the repository", "https://github.com/onerinas/whatwentwelltoday/issues/new", class: "underline", target: :_blank %>
+       if you prefer.</p>
+    <%= link_to "Submit Another Feedback", new_feedback_path, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+
+    <%= link_to "View Homepage", posts_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  </div>
+</div>
