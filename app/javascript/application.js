@@ -4,3 +4,9 @@ import "controllers"
 
 import LocalTime from "local-time"
 LocalTime.start()
+
+document.addEventListener("turbo:load", function() {
+  if (window.fathom) {
+    window.fathom.trackPageview()
+  }
+})
