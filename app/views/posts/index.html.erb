@@ -3,13 +3,19 @@
      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
    <% end %>
 
-   <div class="">
-     <h1 class="font-bold text-4xl">What Went Well Today?</h1>
+   <div>
+    <h1 class="font-bold text-4xl">What Went Well Today?</h1>
 
-     <%= render "form", post: @post %>
+    <%= render "form", post: @post %>
 
-     <div id="posts" class="py-2">
-       <%= render @posts %>
-     </div>
-   </div>
- </div>
+    <div id="posts" class="py-2 space-y-4">
+      <% @posts.each do |post| %>
+        <div class="bg-gray-100 rounded-lg hover:shadow transition duration-300 ease-in-out">
+          <%= link_to post_path(post), class: "" do %>
+            <%= render post %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
