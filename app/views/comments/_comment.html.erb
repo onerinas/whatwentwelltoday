@@ -1,0 +1,6 @@
+<div id="<%= dom_id comment %>">
+  <div class="p-4">
+    <span class="font-light"><%= time_tag comment.created_at, "data-local": "time-ago" %></span>:
+    <%= comment.content %>
+  </div>
+</div>
