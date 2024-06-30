@@ -79,4 +79,4 @@ gem "strong_migrations", "~> 2.0"
 # Running bundle install failed (non-zero exit code)
 # The issue is reproducible with ruby v3.3.3 only:
 # https://stackoverflow.com/a/78620570
-gem "net-pop", require: false
+gem "net-pop", github: "ruby/net-pop"
