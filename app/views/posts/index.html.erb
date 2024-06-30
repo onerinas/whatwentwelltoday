@@ -16,8 +16,13 @@
               <%= render post %>
             </div>
 
-            <div class="flex justify-end">
-              <%= link_to "Reply", post_path(post), class: "rounded-lg py-3 px-5 bg-gray-600 text-white inline-block font-medium cursor-pointer" %>
+            <div class="flex justify-between px-4 py-2 bg-gray-200 rounded-b-lg">
+              <% if post.comments.any? %>
+                <div class="text-xs text-gray-400 my-2">
+                  <%= pluralize(post.comments.count, "reply") %>
+                </div>
+              <% end %>
+              <%= link_to "Reply", post_path(post), class: "rounded-lg py-2 px-4 bg-gray-600 text-white inline-block text-xs font-medium cursor-pointer" %>
             </div>
           <% end %>
         </div>
