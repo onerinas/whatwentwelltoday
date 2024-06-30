@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
+    @post = Post.new
     @posts = Post.all
   end
 
