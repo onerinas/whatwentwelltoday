@@ -1,30 +1,29 @@
 <div class="mx-auto w-full md:w-2/3">
-   <% if notice.present? %>
-     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-   <% end %>
-
-   <div>
-    <h1 class="font-bold text-4xl">What Went Well Today?</h1>
+  <div>
+    <h1 class="font-bold text-4xl text-blue-800">What Went Well Today?</h1>
 
     <%= render "form", post: @post %>
 
     <div id="posts" class="py-2 space-y-4">
       <% @posts.each do |post| %>
-        <div class="bg-gray-100 rounded-lg hover:shadow transition duration-300 ease-in-out">
-          <%= link_to post_path(post) do %>
-            <div class="p-4">
-              <%= render post %>
+        <div id="<%= dom_id post %>" class="bg-blue-50 text-blue-800 rounded-lg hover:shadow transition duration-300 ease-in-out p-4">
+          <div class="text-3xl">
+            <%= link_to post.content, post_path(post) %>
+          </div>
+          <div class="flex justify-between mt-2">
+            <div class="font-light text-sm">
+              <%= time_tag post.created_at, "data-local": "time-ago" %>
+              &middot;
+              <%= link_to "view", post_path(post), class: "cursor-pointer underline" %>
             </div>
-
-            <div class="flex justify-between px-4 py-2 bg-gray-200 rounded-b-lg">
-              <% if post.comments.any? %>
-                <div class="text-xs text-gray-400 my-2">
-                  <%= pluralize(post.comments.count, "reply") %>
-                </div>
+            <div class="font-light text-sm">
+              <%= link_to post_path(post), class: "cursor-pointer underline" do %>
+                <%= pluralize(post.comments.count, "reply") %>
               <% end %>
-              <%= link_to "Reply", post_path(post), class: "rounded-lg py-2 px-4 bg-gray-600 text-white inline-block text-xs font-medium cursor-pointer" %>
+              &middot;
+              <%= link_to "reply", post_path(post), class: "cursor-pointer underline" %>
             </div>
-          <% end %>
+          </div>
         </div>
       <% end %>
     </div>

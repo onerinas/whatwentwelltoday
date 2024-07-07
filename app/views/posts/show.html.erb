@@ -1,24 +1,24 @@
-<div class="mx-auto md:w-2/3 w-full flex">
-  <div class="mx-auto">
-    <% if notice.present? %>
-      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-    <% end %>
+<div class="mx-auto md:w-2/3">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
 
-    <%= render @post %>
+  <div id="<%= dom_id @post %>" class="bg-blue-50 text-blue-800 rounded-lg hover:shadow transition duration-300 ease-in-out p-4">
+    <div class="text-3xl text-blue-800"><%= @post.content %></div>
+    <div class="mt-2 font-light text-xs"><%= time_tag @post.created_at, "data-local": "time-ago" %></div>
+  </div>
 
-    <%= render "comments/form", comment: @comment %>
+  <div class="my-10">
+    <div class="my-5">
+      <%= render "comments/form", comment: @comment %>
+    </div>
 
-    <%= link_to "View Homepage", posts_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-
-    <div class="my-10">
-      <h2 class="text-2xl font-medium mb-5">Replies</h2>
-      <div class="space-y-4">
-        <% @comments.each do |comment| %>
-          <div class="bg-gray-100 rounded-lg hover:shadow transition duration-300 ease-in-out">
-            <%= render partial: "comments/comment", locals: { comment: comment } %>
-          </div>
-        <% end %>
-      </div>
+    <div class="space-y-4">
+      <% @comments.each do |comment| %>
+        <div class="bg-gray-100 rounded-lg hover:shadow transition duration-300 ease-in-out">
+          <%= render partial: "comments/comment", locals: { comment: comment } %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
